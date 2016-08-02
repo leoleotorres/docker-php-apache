@@ -2,7 +2,7 @@ version: '2'
 services:
   php:
     build: .
-    image: floatapp/docker-php-apache:5.5-2.0
+    image: floatapp/docker-php-apache:5.6-1.0
     ports:
      - "80:80"
     volumes:

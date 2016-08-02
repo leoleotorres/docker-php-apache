@@ -1,7 +1,7 @@
 
 # docker build -t floatapp/docker-php-apache:5.x-1.x .
 
-FROM php:5.5-apache
+FROM php:5.6-apache
 MAINTAINER lars@float.com
 
 RUN apt-get update && apt-get install -y \
@@ -18,10 +18,10 @@ RUN docker-php-ext-install pdo_mysql
 RUN a2enmod rewrite
 
 # redis (phpredis):
-COPY phpredis-x86_64.deb .
+COPY php-ext-56/phpredis-x86_64.deb .
 RUN dpkg --install phpredis-x86_64.deb && \
 	cp /etc/php5/apache2/conf.d/redis.ini /usr/local/etc/php/conf.d/
-
+	
 COPY php.ini /usr/local/etc/php
 
 ####
