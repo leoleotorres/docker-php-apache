@@ -1,5 +1,5 @@
 
-# docker build -t floatapp/php5.5:1.x .
+# docker build -t floatapp/docker-php-apache:5.x-1.x .
 
 FROM php:5.5-apache
 MAINTAINER lars@float.com
