@@ -1,16 +1,23 @@
-# docker-php-apache
+#Docker Image for PHP-Apache by Float.com
+
+## php-apache
 dockerized php with PHP extensions for Yii:
   _mcrypt, gd, pdo mysql, phpredis, apache rewrite, etc._
 
-## tags:
-`5.6-1.0` [(repo)](https://github.com/floatschedule/docker-php-apache/tree/5.6-1.0) ([Dockerfile](https://github.com/floatschedule/docker-php-apache/blob/5.6-1.0/Dockerfile)) PHP 5.6 - Apache with Yii extensions and phpredis
+### tags:
+Dockerhub Tags: [https://hub.docker.com/r/floatapp/docker-php-apache/tags/](https://hub.docker.com/r/floatapp/docker-php-apache/tags/)
 
-`5.5-2.0` [(repo)](https://github.com/floatschedule/docker-php-apache/tree/5.5-2.0) ([Dockerfile](https://github.com/floatschedule/docker-php-apache/blob/5.5-2.0/Dockerfile)) PHP 5.5 - Apache with Yii extensions and phpredis
+### php version - update FROM attribute in Dockerfile
+see: https://hub.docker.com/_/php/ for more info
 
-
-### build example:
-`docker-compose build php`
+### build examples:
+* `docker build -t floatapp/docker-php-apache`
+* `docker-compose build php`
 
 ### run examples:
-`docker-compose run`
-`docker-compose run --rm -p 8080:80`
+* `docker-compose run`
+* `docker-compose run --rm -p 8080:80`
+
+### php Composer:
+Composer installed to: /usr/local/bin/composer.phar<br/>
+Use it: `php /usr/local/bin/composer.phar`

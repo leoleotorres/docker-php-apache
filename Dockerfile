@@ -1,9 +1,10 @@
 
-# docker build -t floatapp/docker-php-apache:5.x-1.x .
+# docker build -t floatapp/docker-php-apache:5.6.30-1 .
 
-FROM php:5.6-apache
+FROM php:5.6.30-apache
 MAINTAINER lars@float.com
 
+# php-related updates:
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -15,14 +16,17 @@ RUN docker-php-ext-install -j$(nproc) iconv mcrypt && \
 
 RUN docker-php-ext-install pdo_mysql
 
+RUN pecl install redis-3.1.1 \
+    && docker-php-ext-enable redis
+
 RUN a2enmod rewrite
 
-# redis (phpredis):
-COPY php-ext-56/phpredis-x86_64.deb .
-RUN dpkg --install phpredis-x86_64.deb && \
-	cp /etc/php5/apache2/conf.d/redis.ini /usr/local/etc/php/conf.d/
-	
 COPY php.ini /usr/local/etc/php
+
+# Composer:
+RUN apt-get install -y wget zip unzip
+COPY composer-install.sh /tmp
+RUN /tmp/composer-install.sh
 
 ####
 # docker-php-ext-configure
