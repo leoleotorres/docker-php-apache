@@ -1,10 +1,10 @@
-version: '2'
+version: '2.1'
 services:
   php:
-    build: .
-    image: floatapp/docker-php-apache
+#    build: .
+    image: floatapp/php-apache:develop
     ports:
      - "80:80"
     volumes:
      - ./apache2/sites-enabled:/etc/apache2/sites-enabled
-     - ./sites:/var/www/html
+     - ./html:/var/www/html

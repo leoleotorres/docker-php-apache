@@ -1,0 +1,14 @@
+.git
+.npm
+.cache
+**/*.class
+**/.DS_Store
+.vscode
+logs
+*.log
+node_modules
+npm-debug.log*
+.node_repl_history
+jspm_packages
+lib-cov
+coverage

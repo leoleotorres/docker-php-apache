@@ -1,5 +1,5 @@
 ##
-# docker build -t floatapp/docker-php-apache:latest .
+# docker build -t floatapp/php-apache:develop .
 
 FROM php:7.1-apache
 MAINTAINER lars@float.com
