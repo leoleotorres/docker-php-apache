@@ -1,7 +1,7 @@
+##
+# docker build -t floatapp/docker-php-apache:latest .
 
-# docker build -t floatapp/docker-php-apache:5.6.30-1 .
-
-FROM php:5.6.30-apache
+FROM php:7.1-apache
 MAINTAINER lars@float.com
 
 # php-related updates:
@@ -16,7 +16,7 @@ RUN docker-php-ext-install -j$(nproc) iconv mcrypt && \
 
 RUN docker-php-ext-install pdo_mysql
 
-RUN pecl install redis-3.1.1 \
+RUN pecl install redis-3.1.3 \
     && docker-php-ext-enable redis
 
 RUN a2enmod rewrite
@@ -26,7 +26,8 @@ COPY php.ini /usr/local/etc/php
 # Composer:
 RUN apt-get install -y wget zip unzip
 COPY composer-install.sh /tmp
-RUN /tmp/composer-install.sh
+RUN /tmp/composer-install.sh && cp /usr/local/bin/composer.phar /usr/local/bin/composer
+
 
 ####
 # docker-php-ext-configure
