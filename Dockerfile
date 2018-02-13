@@ -1,8 +1,12 @@
 ##
+# dockerized php with PHP extensions for Yii v1
+#
 # docker build -t floatapp/docker-php-apache:develop .
+#
+###
 
-FROM php:7.1.8-apache
-MAINTAINER lars@float.com
+FROM php:7.1.14-apache
+LABEL maintainer="tech@float.com"
 
 # php-related updates:
 RUN apt-get update && apt-get install -y \
@@ -29,7 +33,8 @@ COPY etc-php/php.ini /usr/local/etc/php
 RUN apt-get install -y wget zip unzip
 COPY composer-install.sh /tmp
 RUN /tmp/composer-install.sh && cp /usr/local/bin/composer.phar /usr/local/bin/composer
-
+RUN composer self-update
+RUN composer global require "fxp/composer-asset-plugin:^1.3.1"
 
 ####
 # docker-php-ext-configure
