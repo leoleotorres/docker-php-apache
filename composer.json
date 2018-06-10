@@ -1,0 +1,36 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/floatschedule/yii-rollbar.git"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "google/apiclient": "1.0.*@beta",
+        "rollbar/rollbar": "~1.5.0",
+        "onelogin/php-saml": "2.9.*",
+        "chartmogul/chartmogul-php": "^1.0",
+        "intercom/intercom-php": "dev-master",
+        "floatschedule/yii-rollbar": "dev-rollbar151",
+        "guzzlehttp/guzzle": "~6.0",
+        "recurly/recurly-client": "2.7.*",
+        "yiisoft/yii": "~1.1.19",
+        "firebase/php-jwt": "dev-master",
+        "aws/aws-sdk-php": "^3.0@dev",
+        "doctrine/collections": "<1.5",
+        "league/oauth2-server": "~6",
+        "http-interop/response-sender": "dev-master",
+        "php-amqplib/php-amqplib": "2.6.*"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "disable-tls": false,
+        "secure-http": true
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0@dev",
+        "neam/yii-streamlog": "*"
+    }
+}
